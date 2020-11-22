@@ -1,3 +1,13 @@
+import { FoodItem } from '../domain.model';
+
+export enum ActionTypeEnum {
+    ADD_FOOD_ITEM
+}
+
 export interface RootAction {
-    type: string;
+    type: ActionTypeEnum;
+}
+
+export interface AddFoodItemAction extends RootAction {
+    foodItem: FoodItem;
 }

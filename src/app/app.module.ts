@@ -8,6 +8,7 @@ import { AddFoodItemComponent } from './add-food-item/add-food-item.component';
 import { FoodItemDisplayComponent } from './food-item-display/food-item-display.component';
 import { IAppState, DEFAULT_APP_STATE } from './store/state.model';
 import { rootReducer } from './store/reducer';
+import { ActionDipatcherService } from './store/action.dispatcher.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { rootReducer } from './store/reducer';
     FormsModule,
     NgReduxModule
   ],
-  providers: [],
+  providers: [ActionDipatcherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

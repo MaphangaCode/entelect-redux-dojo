@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { ActionDipatcherService } from '../store/action.dispatcher.service';
+import { FoodItem } from '../domain.model';
 
 
 @Component({
@@ -9,10 +11,15 @@ export class AddFoodItemComponent {
 
     foodItemName: string;
     foodItemType: string;
+
+    constructor(private actionDispatcherService: ActionDipatcherService) {}
     
     addFoodItem(): void {
-        //todo add code to add food item to store and
-        //increase counter in store
-        console.log('adding food item');
+        const foodItem: FoodItem = {
+            name: 'Onion',
+            type: 'Veggie'
+        };
+
+        this.actionDispatcherService.addFoodItem(foodItem);
     }
 }

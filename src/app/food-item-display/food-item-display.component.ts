@@ -10,7 +10,8 @@ export class FoodItemDisplayComponent implements OnInit {
 
     ngOnInit() {
         //todo get rid of this and read from the store
-        const foodItem: FoodItem = {
+        const foodItem: FoodItem = {//todo add code to add food item to store and
+            //increase counter in store
             name: 'Banana',
             type: 'Fruit'
         };
