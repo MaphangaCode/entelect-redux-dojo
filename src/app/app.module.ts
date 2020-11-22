@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgReduxModule, NgRedux } from '@angular-redux/store';
 
 import { AppComponent } from './app.component';
 import { AddFoodItemComponent } from './add-food-item/add-food-item.component';
 import { FoodItemDisplayComponent } from './food-item-display/food-item-display.component';
+import { IAppState, DEFAULT_APP_STATE } from './store/state.model';
+import { rootReducer } from './store/reducer';
 
 @NgModule({
   declarations: [
@@ -14,9 +17,15 @@ import { FoodItemDisplayComponent } from './food-item-display/food-item-display.
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    NgReduxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  constructor(ngRedux: NgRedux<IAppState>) {
+    ngRedux.configureStore(rootReducer, DEFAULT_APP_STATE);
+  }
+}
