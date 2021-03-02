@@ -1,5 +1,5 @@
 <h1>Food Items</h1>
-<p *ngIf="foodItems.length == 0">No items to display</p>
+<p *ngIf="foodItems && foodItems.length == 0">No items to display</p>
 <ul>
-    <li *ngFor="let foodItem of foodItems">{{foodItem.name}} [{{foodItem.type}}]</li>
+    <li *ngFor="let foodItem of foodItemsObs | async">{{foodItem.name}} [{{foodItem.type}}]</li>
 </ul>
