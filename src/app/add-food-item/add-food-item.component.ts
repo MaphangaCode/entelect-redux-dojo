@@ -1,18 +1,26 @@
-import { Component } from "@angular/core";
-
+import { Component, OnInit } from "@angular/core";
+import { FoodItemType } from '../domain/food-item-type';
 
 @Component({
     selector: 'add-food-item-app',
     templateUrl: 'add-food-item.component.html'
 })
-export class AddFoodItemComponent {
+export class AddFoodItemComponent implements OnInit {
 
+    foodItemTypeList: string[] = [];
     foodItemName: string;
     foodItemType: string;
+
+    ngOnInit(): void {
+        for(let foodItemType in FoodItemType) {
+            this.foodItemTypeList.push(foodItemType);
+        }
+    }
     
     addFoodItem(): void {
-        //todo add code to add food item to store and
-        //increase counter in store
-        console.log('adding food item');
+        //TODO use this method to put food item into store
+
+        this.foodItemName = null;
+        this.foodItemType = null;
     }
 }
